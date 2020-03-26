@@ -1,2 +1,3 @@
-nose
-sphinx
+docker
+numpy
+pyyaml

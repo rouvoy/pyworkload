@@ -1,0 +1,9 @@
+spirals/parsec-3.0:
+    - run -i simsmall -n 4
+
+spirals/npb3.3.1:
+    - run A
+    - run B
+
+spirals/iozone3.434:
+    - run C
