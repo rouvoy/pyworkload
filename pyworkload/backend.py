@@ -24,10 +24,10 @@ class VerboseBackend(Backend):
         Debug backend that prints the tasks
     """
     def prepare(self, app):
-        print('Pulling {app}')
+        print(f'Pulling image {app}')
 
     def start(self, timer, command):
-        print('{timer}: Running {command}')
+        print(f'{timer}: Running container {command}')
 
 
 class DockerBackend(Backend):
