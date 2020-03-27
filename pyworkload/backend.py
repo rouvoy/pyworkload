@@ -18,6 +18,9 @@ class Backend:
                 commands.append([cfg[0], cmd])
         return commands
 
+    def complete(self):
+        pass
+
 
 class VerboseBackend(Backend):
     """
@@ -30,15 +33,28 @@ class VerboseBackend(Backend):
         print(f'{timer}: Running container {command}')
 
 
-class DockerBackend(Backend):
+class DockerBackend(VerboseBackend):
     """
         Backend that runs Docker containers as jobs
     """
     def __init__(self):
         self.docker = docker.from_env()
+        self.images = []
+        self.containers = []
 
     def prepare(self, app):
-        self.docker.images.pull()
+        super().prepare(app)
+        image = self.docker.images.pull(app)
+        self.images.append(image)
 
     def start(self, timer, command):
-        self.docker.containers.run()
+        super().start(timer,command)
+        container = self.docker.containers.run(command[0], command[1], detach=True)
+        self.containers.append(container)
+
+    def complete(self):
+        super().complete()
+        for container in self.containers:
+            container.logs()
+            container.stop()
+        

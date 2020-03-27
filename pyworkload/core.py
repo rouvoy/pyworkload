@@ -29,6 +29,7 @@ class Workload:
             time.sleep(interval)
             timer += interval
             self.__start(n, timer, commands)
+        self.backend.complete()
 
     def __start(self, n, timer, commands):
         apps = random.sample(commands, min(n, len(commands)))

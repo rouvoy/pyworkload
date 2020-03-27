@@ -1,0 +1,2 @@
+ubuntu:latest:
+    - echo hello world
