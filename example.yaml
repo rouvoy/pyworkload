@@ -1,2 +1,6 @@
 ubuntu:latest:
-    - echo hello world
+    - echo Hello world!
+    - echo Bonjour !
+
+alpine:latest:
+    - echo Hei!
