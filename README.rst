@@ -4,12 +4,13 @@ Python Workload Generator Repository
 Installation
 ----------
 ::
+
     % pip install -r requirements.txt
 
 
 Execution
 ----------
-Runs a new workload from applications listed in ``example.yaml`` with the following configuration: spawn 3 apps on average along 4 cycles separated by exactly 2 seconds::
+Install and run a new workload from applications listed in ``example.yaml`` with the following configuration: spawn 3 apps on average every 2 seconds and along 4 cycles::
 
     python3.7 -m pyworkload example.yaml -m 3 -s 2 -t 4
 
